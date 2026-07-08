@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/* ─── Material Design 3 — Dark Theme Tokens ──────────────────────────────────
+ *  Extracted from the Google AI Studio HTML prototype.
+ *  These map M3 color roles to Tailwind CSS custom properties.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Primary ── */
+  --color-primary: #4cd7f6;
+  --color-primary-container: #06b6d4;
+  --color-primary-fixed: #acedff;
+  --color-primary-fixed-dim: #4cd7f6;
+  --color-on-primary: #003640;
+  --color-on-primary-container: #00424f;
+  --color-on-primary-fixed: #001f26;
+  --color-on-primary-fixed-variant: #004e5c;
+  --color-inverse-primary: #00687a;
+
+  /* ── Secondary ── */
+  --color-secondary: #bec6e0;
+  --color-secondary-container: #3f465c;
+  --color-secondary-fixed: #dae2fd;
+  --color-secondary-fixed-dim: #bec6e0;
+  --color-on-secondary: #283044;
+  --color-on-secondary-container: #adb4ce;
+  --color-on-secondary-fixed: #131b2e;
+  --color-on-secondary-fixed-variant: #3f465c;
+
+  /* ── Tertiary ── */
+  --color-tertiary: #ffb873;
+  --color-tertiary-container: #e89337;
+  --color-tertiary-fixed: #ffdcbf;
+  --color-tertiary-fixed-dim: #ffb873;
+  --color-on-tertiary: #4b2800;
+  --color-on-tertiary-container: #5b3200;
+  --color-on-tertiary-fixed: #2d1600;
+  --color-on-tertiary-fixed-variant: #6a3b00;
+
+  /* ── Error ── */
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  /* ── Surface & Background ── */
+  --color-surface: #0e1416;
+  --color-surface-dim: #0e1416;
+  --color-surface-bright: #343a3c;
+  --color-surface-variant: #303638;
+  --color-surface-tint: #4cd7f6;
+  --color-surface-container-lowest: #090f11;
+  --color-surface-container-low: #171d1e;
+  --color-surface-container: #1b2122;
+  --color-surface-container-high: #252b2d;
+  --color-surface-container-highest: #303638;
+  --color-background: #0e1416;
+  --color-on-surface: #dee3e6;
+  --color-on-surface-variant: #bcc9cd;
+  --color-on-background: #dee3e6;
+  --color-inverse-surface: #dee3e6;
+  --color-inverse-on-surface: #2b3133;
+
+  /* ── Outline ── */
+  --color-outline: #869397;
+  --color-outline-variant: #3d494c;
+
+  /* ── Semantic (kept for routing/issue UI) ── */
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+
+  /* ── Spacing (M3 scale) ── */
+  --spacing-base: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-container-padding: 20px;
+  --spacing-touch-target: 44px;
+
+  /* ── Typography presets (font-size utilities) ── */
+  --font-size-label-lg: 14px;
+  --font-size-label-lg--line-height: 1.0;
+  --font-size-label-lg--letter-spacing: 0.05em;
+  --font-size-label-lg--font-weight: 600;
+
+  --font-size-body-md: 16px;
+  --font-size-body-md--line-height: 1.6;
+  --font-size-body-md--font-weight: 400;
+
+  --font-size-body-lg: 18px;
+  --font-size-body-lg--line-height: 1.6;
+  --font-size-body-lg--font-weight: 400;
+
+  --font-size-action-lg: 18px;
+  --font-size-action-lg--line-height: 1.2;
+  --font-size-action-lg--font-weight: 600;
+
+  --font-size-headline-md: 24px;
+  --font-size-headline-md--line-height: 1.3;
+  --font-size-headline-md--font-weight: 600;
+
+  --font-size-headline-lg: 32px;
+  --font-size-headline-lg--line-height: 1.2;
+  --font-size-headline-lg--letter-spacing: -0.01em;
+  --font-size-headline-lg--font-weight: 700;
+
+  --font-size-headline-lg-mobile: 28px;
+  --font-size-headline-lg-mobile--line-height: 1.2;
+  --font-size-headline-lg-mobile--font-weight: 700;
+
+  --font-size-display-lg: 48px;
+  --font-size-display-lg--line-height: 1.1;
+  --font-size-display-lg--letter-spacing: -0.02em;
+  --font-size-display-lg--font-weight: 800;
+}
+
+/* ── Base layer ─────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-on-surface;
+    margin: 0;
+  }
+
+  /* Material Symbols default settings */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* Focus-visible ring for keyboard nav */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary rounded-sm;
+  }
+
+  /* Skip-to-content link */
+  .skip-link {
+    @apply absolute -top-12 left-4 z-50 bg-primary text-on-primary px-4 py-2 rounded-b-lg font-semibold transition-all duration-200;
+  }
+  .skip-link:focus {
+    @apply top-0;
+  }
+}
+
+/* ── Component layer ──────────────────────────────── */
+@layer components {
+  .glass-card {
+    background-color: rgba(14, 20, 22, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-modal {
+    background-color: rgba(9, 15, 17, 0.8);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+  }
+
+  .glass-panel {
+    background: rgba(14, 20, 22, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ── High-contrast mode (Vision profile) ──────── */
+@layer utilities {
+  .high-contrast {
+    --color-background: #000000;
+    --color-surface: #000000;
+    --color-surface-container: #111111;
+    --color-surface-container-low: #111111;
+    --color-on-surface: #ffffff;
+    --color-on-surface-variant: #eeeeee;
+    --color-primary: #5eaaff;
+  }
+
+  .high-contrast * {
+    border-color: #ffffff !important;
+  }
+
+  /* Reduce motion for Cognitive/Sensory or OS preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  .reduce-motion *,
+  .reduce-motion *::before,
+  .reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Scrollbar styling ─────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(134, 147, 151, 0.4);
+  border-radius: 9999px;
+}

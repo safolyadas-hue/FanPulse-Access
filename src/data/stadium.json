@@ -1,0 +1,423 @@
+{
+  "venue": {
+    "name": "MetLife Stadium",
+    "location": "East Rutherford, NJ",
+    "capacity": 82500,
+    "event": "FIFA World Cup 2026 — Final",
+    "coordinates": { "lat": 40.8135, "lng": -74.0745 },
+    "levels": [
+      { "id": "field", "name": "Field Level", "floor": 0 },
+      { "id": "lower", "name": "Lower Bowl (100s)", "floor": 1 },
+      { "id": "mezzanine", "name": "Mezzanine (200s)", "floor": 2 },
+      { "id": "upper", "name": "Upper Deck (300s)", "floor": 3 }
+    ]
+  },
+
+  "gates": [
+    { "id": "gate-a", "name": "Gate A", "direction": "East", "level": "lower", "accessible": true, "coordinates": { "x": 80, "y": 20 } },
+    { "id": "gate-b", "name": "Gate B", "direction": "Southeast", "level": "lower", "accessible": true, "coordinates": { "x": 90, "y": 50 } },
+    { "id": "gate-c", "name": "Gate C", "direction": "South", "level": "lower", "accessible": false, "coordinates": { "x": 80, "y": 80 } },
+    { "id": "gate-d", "name": "Gate D", "direction": "Southwest", "level": "lower", "accessible": true, "coordinates": { "x": 50, "y": 90 } },
+    { "id": "gate-e", "name": "Gate E", "direction": "West", "level": "lower", "accessible": true, "coordinates": { "x": 20, "y": 80 } },
+    { "id": "gate-f", "name": "Gate F", "direction": "Northwest", "level": "lower", "accessible": false, "coordinates": { "x": 10, "y": 50 } },
+    { "id": "gate-g", "name": "Gate G", "direction": "North", "level": "lower", "accessible": true, "coordinates": { "x": 20, "y": 20 } },
+    { "id": "gate-h", "name": "Gate H", "direction": "Northeast", "level": "lower", "accessible": true, "coordinates": { "x": 50, "y": 10 } }
+  ],
+
+  "sections": [
+    { "id": "sec-101", "name": "Section 101", "level": "lower", "zone": "east", "nearest_gate": "gate-a", "accessible_seating": true, "companion_seats": 4, "noise_level": "high" },
+    { "id": "sec-104", "name": "Section 104", "level": "lower", "zone": "south", "nearest_gate": "gate-c", "accessible_seating": true, "companion_seats": 6, "noise_level": "high" },
+    { "id": "sec-108", "name": "Section 108", "level": "lower", "zone": "south", "nearest_gate": "gate-d", "accessible_seating": false, "companion_seats": 0, "noise_level": "high" },
+    { "id": "sec-111", "name": "Section 111", "level": "lower", "zone": "west", "nearest_gate": "gate-e", "accessible_seating": true, "companion_seats": 4, "noise_level": "medium" },
+    { "id": "sec-115", "name": "Section 115", "level": "lower", "zone": "north", "nearest_gate": "gate-g", "accessible_seating": true, "companion_seats": 4, "noise_level": "medium" },
+    { "id": "sec-119", "name": "Section 119", "level": "lower", "zone": "east", "nearest_gate": "gate-a", "accessible_seating": false, "companion_seats": 0, "noise_level": "medium" },
+    { "id": "sec-203", "name": "Section 203", "level": "mezzanine", "zone": "east", "nearest_gate": "gate-a", "accessible_seating": true, "companion_seats": 2, "noise_level": "medium" },
+    { "id": "sec-207", "name": "Section 207", "level": "mezzanine", "zone": "south", "nearest_gate": "gate-c", "accessible_seating": false, "companion_seats": 0, "noise_level": "medium" },
+    { "id": "sec-210", "name": "Section 210", "level": "mezzanine", "zone": "west", "nearest_gate": "gate-e", "accessible_seating": true, "companion_seats": 2, "noise_level": "low" },
+    { "id": "sec-215", "name": "Section 215", "level": "mezzanine", "zone": "north", "nearest_gate": "gate-g", "accessible_seating": true, "companion_seats": 2, "noise_level": "low" },
+    { "id": "sec-302", "name": "Section 302", "level": "upper", "zone": "east", "nearest_gate": "gate-a", "accessible_seating": true, "companion_seats": 2, "noise_level": "low" },
+    { "id": "sec-306", "name": "Section 306", "level": "upper", "zone": "south", "nearest_gate": "gate-c", "accessible_seating": false, "companion_seats": 0, "noise_level": "medium" },
+    { "id": "sec-310", "name": "Section 310", "level": "upper", "zone": "west", "nearest_gate": "gate-e", "accessible_seating": true, "companion_seats": 2, "noise_level": "low" },
+    { "id": "sec-314", "name": "Section 314", "level": "upper", "zone": "north", "nearest_gate": "gate-g", "accessible_seating": false, "companion_seats": 0, "noise_level": "low" }
+  ],
+
+  "elevators": [
+    { "id": "elev-1", "name": "Elevator 1 (East)", "zone": "east", "from_level": "lower", "to_level": "mezzanine", "location": "Near Gate A", "in_service": true, "coordinates": { "x": 78, "y": 25 } },
+    { "id": "elev-2", "name": "Elevator 2 (East)", "zone": "east", "from_level": "mezzanine", "to_level": "upper", "location": "Near Gate A, Level 2", "in_service": false, "coordinates": { "x": 78, "y": 22 } },
+    { "id": "elev-3", "name": "Elevator 3 (South)", "zone": "south", "from_level": "lower", "to_level": "upper", "location": "Near Gate D", "in_service": true, "coordinates": { "x": 55, "y": 88 } },
+    { "id": "elev-4", "name": "Elevator 4 (West)", "zone": "west", "from_level": "lower", "to_level": "mezzanine", "location": "Near Gate E", "in_service": true, "coordinates": { "x": 22, "y": 75 } },
+    { "id": "elev-5", "name": "Elevator 5 (West)", "zone": "west", "from_level": "mezzanine", "to_level": "upper", "location": "Near Gate E, Level 2", "in_service": false, "coordinates": { "x": 22, "y": 72 } },
+    { "id": "elev-6", "name": "Elevator 6 (North)", "zone": "north", "from_level": "lower", "to_level": "upper", "location": "Near Gate G", "in_service": true, "coordinates": { "x": 25, "y": 22 } },
+    { "id": "elev-7", "name": "Elevator 7 (Northeast)", "zone": "east", "from_level": "lower", "to_level": "mezzanine", "location": "Near Gate H", "in_service": true, "coordinates": { "x": 55, "y": 12 } },
+    { "id": "elev-8", "name": "Elevator 8 (Southeast)", "zone": "south", "from_level": "lower", "to_level": "upper", "location": "Near Gate B", "in_service": true, "coordinates": { "x": 88, "y": 48 } }
+  ],
+
+  "ramps": [
+    { "id": "ramp-1", "name": "Ramp 1 (East Main)", "zone": "east", "from_level": "lower", "to_level": "mezzanine", "location": "Gate A Concourse", "in_service": true, "coordinates": { "x": 82, "y": 28 } },
+    { "id": "ramp-2", "name": "Ramp 2 (South)", "zone": "south", "from_level": "lower", "to_level": "mezzanine", "location": "Gate D Concourse", "in_service": true, "coordinates": { "x": 52, "y": 85 } },
+    { "id": "ramp-3", "name": "Ramp 3 (West)", "zone": "west", "from_level": "lower", "to_level": "mezzanine", "location": "Gate E Concourse", "in_service": false, "coordinates": { "x": 18, "y": 78 } },
+    { "id": "ramp-4", "name": "Ramp 4 (North)", "zone": "north", "from_level": "lower", "to_level": "mezzanine", "location": "Gate G Concourse", "in_service": true, "coordinates": { "x": 22, "y": 18 } },
+    { "id": "ramp-5", "name": "Ramp 5 (East Upper)", "zone": "east", "from_level": "mezzanine", "to_level": "upper", "location": "Section 203 Area", "in_service": true, "coordinates": { "x": 75, "y": 30 } },
+    { "id": "ramp-6", "name": "Ramp 6 (North Upper)", "zone": "north", "from_level": "mezzanine", "to_level": "upper", "location": "Section 215 Area", "in_service": true, "coordinates": { "x": 28, "y": 15 } }
+  ],
+
+  "restrooms": [
+    { "id": "rest-1", "name": "Restroom 1A", "level": "lower", "zone": "east", "accessible": true, "family": false, "nearest_gate": "gate-a", "coordinates": { "x": 76, "y": 30 } },
+    { "id": "rest-2", "name": "Restroom 1B", "level": "lower", "zone": "east", "accessible": false, "family": false, "nearest_gate": "gate-a", "coordinates": { "x": 85, "y": 25 } },
+    { "id": "rest-3", "name": "Restroom 2A", "level": "lower", "zone": "south", "accessible": true, "family": true, "nearest_gate": "gate-c", "coordinates": { "x": 75, "y": 78 } },
+    { "id": "rest-4", "name": "Restroom 2B", "level": "lower", "zone": "south", "accessible": false, "family": false, "nearest_gate": "gate-d", "coordinates": { "x": 55, "y": 85 } },
+    { "id": "rest-5", "name": "Restroom 3A", "level": "lower", "zone": "west", "accessible": true, "family": false, "nearest_gate": "gate-e", "coordinates": { "x": 18, "y": 75 } },
+    { "id": "rest-6", "name": "Restroom 3B", "level": "lower", "zone": "west", "accessible": false, "family": false, "nearest_gate": "gate-e", "coordinates": { "x": 15, "y": 60 } },
+    { "id": "rest-7", "name": "Restroom 4A", "level": "lower", "zone": "north", "accessible": true, "family": true, "nearest_gate": "gate-g", "coordinates": { "x": 25, "y": 25 } },
+    { "id": "rest-8", "name": "Restroom 4B", "level": "lower", "zone": "north", "accessible": false, "family": false, "nearest_gate": "gate-h", "coordinates": { "x": 48, "y": 15 } },
+    { "id": "rest-9", "name": "Restroom 5A (Mezzanine East)", "level": "mezzanine", "zone": "east", "accessible": true, "family": false, "nearest_gate": "gate-a", "coordinates": { "x": 80, "y": 32 } },
+    { "id": "rest-10", "name": "Restroom 5B (Mezzanine South)", "level": "mezzanine", "zone": "south", "accessible": false, "family": false, "nearest_gate": "gate-c", "coordinates": { "x": 70, "y": 82 } },
+    { "id": "rest-11", "name": "Restroom 6A (Mezzanine West)", "level": "mezzanine", "zone": "west", "accessible": true, "family": true, "nearest_gate": "gate-e", "coordinates": { "x": 20, "y": 70 } },
+    { "id": "rest-12", "name": "Restroom 6B (Mezzanine North)", "level": "mezzanine", "zone": "north", "accessible": true, "family": false, "nearest_gate": "gate-g", "coordinates": { "x": 28, "y": 20 } },
+    { "id": "rest-13", "name": "Restroom 7A (Upper East)", "level": "upper", "zone": "east", "accessible": true, "family": false, "nearest_gate": "gate-a", "coordinates": { "x": 78, "y": 28 } },
+    { "id": "rest-14", "name": "Restroom 7B (Upper South)", "level": "upper", "zone": "south", "accessible": false, "family": false, "nearest_gate": "gate-c", "coordinates": { "x": 72, "y": 80 } },
+    { "id": "rest-15", "name": "Restroom 8A (Upper West)", "level": "upper", "zone": "west", "accessible": true, "family": false, "nearest_gate": "gate-e", "coordinates": { "x": 22, "y": 72 } },
+    { "id": "rest-16", "name": "Restroom 8B (Upper North)", "level": "upper", "zone": "north", "accessible": true, "family": false, "nearest_gate": "gate-g", "coordinates": { "x": 25, "y": 18 } },
+    { "id": "rest-17", "name": "Family Restroom (East)", "level": "lower", "zone": "east", "accessible": true, "family": true, "nearest_gate": "gate-b", "coordinates": { "x": 88, "y": 45 } },
+    { "id": "rest-18", "name": "Family Restroom (West)", "level": "lower", "zone": "west", "accessible": true, "family": true, "nearest_gate": "gate-f", "coordinates": { "x": 12, "y": 55 } },
+    { "id": "rest-19", "name": "Companion Restroom (North)", "level": "lower", "zone": "north", "accessible": true, "family": false, "nearest_gate": "gate-h", "coordinates": { "x": 45, "y": 12 } },
+    { "id": "rest-20", "name": "Companion Restroom (South)", "level": "lower", "zone": "south", "accessible": true, "family": false, "nearest_gate": "gate-d", "coordinates": { "x": 48, "y": 88 } }
+  ],
+
+  "quiet_spaces": [
+    {
+      "id": "quiet-1",
+      "name": "Sensory Room A (East)",
+      "level": "lower",
+      "zone": "east",
+      "location": "Behind Section 101, near Gate A",
+      "capacity": 15,
+      "noise_level": "very_low",
+      "features": ["dimmable lights", "noise-cancelling headphones available", "soft seating", "live match feed on screen"],
+      "nearest_gate": "gate-a",
+      "coordinates": { "x": 75, "y": 22 }
+    },
+    {
+      "id": "quiet-2",
+      "name": "Sensory Room B (West)",
+      "level": "lower",
+      "zone": "west",
+      "location": "Behind Section 111, near Gate E",
+      "capacity": 15,
+      "noise_level": "very_low",
+      "features": ["dimmable lights", "weighted blankets", "soft seating", "live match audio optional"],
+      "nearest_gate": "gate-e",
+      "coordinates": { "x": 20, "y": 72 }
+    },
+    {
+      "id": "quiet-3",
+      "name": "Calm Zone (North Concourse)",
+      "level": "mezzanine",
+      "zone": "north",
+      "location": "Mezzanine Level, Section 215 area",
+      "capacity": 30,
+      "noise_level": "low",
+      "features": ["reduced lighting", "seating", "water station", "away from speakers"],
+      "nearest_gate": "gate-g",
+      "coordinates": { "x": 30, "y": 15 }
+    },
+    {
+      "id": "quiet-4",
+      "name": "Calm Zone (South Concourse)",
+      "level": "mezzanine",
+      "zone": "south",
+      "location": "Mezzanine Level, near Section 207",
+      "capacity": 25,
+      "noise_level": "low",
+      "features": ["reduced lighting", "seating", "phone charging", "accessible entrance"],
+      "nearest_gate": "gate-d",
+      "coordinates": { "x": 60, "y": 82 }
+    }
+  ],
+
+  "assisted_listening": [
+    {
+      "id": "als-1",
+      "name": "Assisted Listening Desk (East)",
+      "level": "lower",
+      "zone": "east",
+      "location": "Guest Services near Gate A",
+      "type": "device",
+      "available_devices": 50,
+      "nearest_gate": "gate-a",
+      "coordinates": { "x": 82, "y": 18 }
+    },
+    {
+      "id": "als-2",
+      "name": "Assisted Listening Desk (West)",
+      "level": "lower",
+      "zone": "west",
+      "location": "Guest Services near Gate E",
+      "type": "device",
+      "available_devices": 50,
+      "nearest_gate": "gate-e",
+      "coordinates": { "x": 18, "y": 82 }
+    },
+    {
+      "id": "als-3",
+      "name": "Hearing Loop (Mezzanine Club)",
+      "level": "mezzanine",
+      "zone": "north",
+      "location": "Mezzanine Club Level, Section 215 area",
+      "type": "loop",
+      "available_devices": 0,
+      "nearest_gate": "gate-g",
+      "coordinates": { "x": 32, "y": 18 }
+    }
+  ],
+
+  "concessions": [
+    { "id": "conc-1", "name": "Main Grill (East)", "level": "lower", "zone": "east", "location": "East Concourse near Gate A", "noise_level": "high", "accessible_counter": true, "coordinates": { "x": 82, "y": 30 } },
+    { "id": "conc-2", "name": "Pizza Station", "level": "lower", "zone": "south", "location": "South Concourse near Gate C", "noise_level": "high", "accessible_counter": true, "coordinates": { "x": 78, "y": 78 } },
+    { "id": "conc-3", "name": "Taco Stand", "level": "lower", "zone": "south", "location": "South Concourse near Gate D", "noise_level": "medium", "accessible_counter": true, "coordinates": { "x": 52, "y": 88 } },
+    { "id": "conc-4", "name": "Coffee Bar (West)", "level": "lower", "zone": "west", "location": "West Concourse near Gate E", "noise_level": "low", "accessible_counter": true, "coordinates": { "x": 15, "y": 68 } },
+    { "id": "conc-5", "name": "Burger Joint", "level": "lower", "zone": "north", "location": "North Concourse near Gate G", "noise_level": "medium", "accessible_counter": false, "coordinates": { "x": 28, "y": 22 } },
+    { "id": "conc-6", "name": "Sushi Bar", "level": "lower", "zone": "north", "location": "North Concourse near Gate H", "noise_level": "low", "accessible_counter": true, "coordinates": { "x": 48, "y": 12 } },
+    { "id": "conc-7", "name": "Club Lounge Bar", "level": "mezzanine", "zone": "east", "location": "Mezzanine East", "noise_level": "medium", "accessible_counter": true, "coordinates": { "x": 80, "y": 35 } },
+    { "id": "conc-8", "name": "Craft Beer Stand", "level": "mezzanine", "zone": "west", "location": "Mezzanine West", "noise_level": "medium", "accessible_counter": true, "coordinates": { "x": 20, "y": 65 } },
+    { "id": "conc-9", "name": "Ice Cream Cart", "level": "mezzanine", "zone": "south", "location": "Mezzanine South", "noise_level": "low", "accessible_counter": true, "coordinates": { "x": 65, "y": 85 } },
+    { "id": "conc-10", "name": "Water & Snacks Kiosk", "level": "upper", "zone": "east", "location": "Upper East Concourse", "noise_level": "low", "accessible_counter": true, "coordinates": { "x": 75, "y": 25 } }
+  ],
+
+  "first_aid": [
+    { "id": "fa-1", "name": "First Aid Station (East)", "level": "lower", "zone": "east", "location": "Near Gate A, Guest Services", "accessible": true, "coordinates": { "x": 83, "y": 20 } },
+    { "id": "fa-2", "name": "First Aid Station (West)", "level": "lower", "zone": "west", "location": "Near Gate E, Guest Services", "accessible": true, "coordinates": { "x": 17, "y": 80 } },
+    { "id": "fa-3", "name": "First Aid Station (Mezzanine)", "level": "mezzanine", "zone": "north", "location": "Mezzanine North Concourse", "accessible": true, "coordinates": { "x": 30, "y": 20 } }
+  ],
+
+  "guest_services": [
+    { "id": "gs-1", "name": "Guest Services (East)", "level": "lower", "zone": "east", "location": "Inside Gate A", "services": ["wheelchair rental", "assisted listening devices", "lost & found", "accessibility info"], "coordinates": { "x": 81, "y": 19 } },
+    { "id": "gs-2", "name": "Guest Services (West)", "level": "lower", "zone": "west", "location": "Inside Gate E", "services": ["wheelchair rental", "assisted listening devices", "lost & found", "accessibility info"], "coordinates": { "x": 19, "y": 81 } }
+  ],
+
+  "routes": [
+    {
+      "id": "route-1",
+      "from": "gate-a",
+      "to": "sec-101",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Walk straight along East Concourse", "distance_meters": 50, "step_free": true, "noise_exposure": "high" },
+        { "instruction": "Turn left at Section 101 entrance", "distance_meters": 20, "step_free": true, "noise_exposure": "high" }
+      ],
+      "total_distance_meters": 70,
+      "step_free": true,
+      "noise_exposure": "high",
+      "estimated_minutes": 2
+    },
+    {
+      "id": "route-2",
+      "from": "gate-a",
+      "to": "sec-203",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take Elevator 1 to Mezzanine Level", "distance_meters": 10, "step_free": true, "noise_exposure": "low", "requires": "elev-1" },
+        { "instruction": "Walk along Mezzanine East Concourse", "distance_meters": 40, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Enter Section 203", "distance_meters": 15, "step_free": true, "noise_exposure": "medium" }
+      ],
+      "total_distance_meters": 65,
+      "step_free": true,
+      "noise_exposure": "medium",
+      "estimated_minutes": 3
+    },
+    {
+      "id": "route-2-stairs",
+      "from": "gate-a",
+      "to": "sec-203",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take stairs to Mezzanine Level", "distance_meters": 15, "step_free": false, "noise_exposure": "medium" },
+        { "instruction": "Walk along Mezzanine East Concourse", "distance_meters": 30, "step_free": false, "noise_exposure": "medium" },
+        { "instruction": "Enter Section 203", "distance_meters": 15, "step_free": false, "noise_exposure": "medium" }
+      ],
+      "total_distance_meters": 60,
+      "step_free": false,
+      "noise_exposure": "medium",
+      "estimated_minutes": 2
+    },
+    {
+      "id": "route-3",
+      "from": "gate-a",
+      "to": "sec-302",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take Elevator 1 to Mezzanine Level", "distance_meters": 10, "step_free": true, "noise_exposure": "low", "requires": "elev-1" },
+        { "instruction": "Take Elevator 2 to Upper Deck", "distance_meters": 10, "step_free": true, "noise_exposure": "low", "requires": "elev-2" },
+        { "instruction": "Walk along Upper East Concourse", "distance_meters": 30, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Enter Section 302", "distance_meters": 15, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 65,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 4
+    },
+    {
+      "id": "route-3-alt",
+      "from": "gate-a",
+      "to": "sec-302",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take Ramp 1 to Mezzanine Level", "distance_meters": 30, "step_free": true, "noise_exposure": "medium", "requires": "ramp-1" },
+        { "instruction": "Take Ramp 5 to Upper Deck", "distance_meters": 30, "step_free": true, "noise_exposure": "low", "requires": "ramp-5" },
+        { "instruction": "Walk along Upper East Concourse", "distance_meters": 30, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Enter Section 302", "distance_meters": 15, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 105,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 5
+    },
+    {
+      "id": "route-3-stairs",
+      "from": "gate-a",
+      "to": "sec-302",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take stairs to Upper Deck", "distance_meters": 40, "step_free": false, "noise_exposure": "medium" },
+        { "instruction": "Walk along Upper East Concourse", "distance_meters": 30, "step_free": false, "noise_exposure": "low" },
+        { "instruction": "Enter Section 302", "distance_meters": 15, "step_free": false, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 85,
+      "step_free": false,
+      "noise_exposure": "medium",
+      "estimated_minutes": 3
+    },
+    {
+      "id": "route-4",
+      "from": "gate-e",
+      "to": "sec-111",
+      "steps": [
+        { "instruction": "Enter through Gate E", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Walk along West Concourse", "distance_meters": 40, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Enter Section 111", "distance_meters": 15, "step_free": true, "noise_exposure": "medium" }
+      ],
+      "total_distance_meters": 55,
+      "step_free": true,
+      "noise_exposure": "medium",
+      "estimated_minutes": 2
+    },
+    {
+      "id": "route-5",
+      "from": "gate-e",
+      "to": "sec-210",
+      "steps": [
+        { "instruction": "Enter through Gate E", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take Elevator 4 to Mezzanine Level", "distance_meters": 10, "step_free": true, "noise_exposure": "low", "requires": "elev-4" },
+        { "instruction": "Walk along Mezzanine West Concourse", "distance_meters": 30, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Enter Section 210", "distance_meters": 15, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 55,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 3
+    },
+    {
+      "id": "route-6",
+      "from": "gate-e",
+      "to": "sec-310",
+      "steps": [
+        { "instruction": "Enter through Gate E", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Take Elevator 4 to Mezzanine Level", "distance_meters": 10, "step_free": true, "noise_exposure": "low", "requires": "elev-4" },
+        { "instruction": "Take Elevator 5 to Upper Deck", "distance_meters": 10, "step_free": true, "noise_exposure": "low", "requires": "elev-5" },
+        { "instruction": "Walk along Upper West Concourse", "distance_meters": 30, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Enter Section 310", "distance_meters": 15, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 65,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 4
+    },
+    {
+      "id": "route-7",
+      "from": "gate-g",
+      "to": "sec-115",
+      "steps": [
+        { "instruction": "Enter through Gate G", "distance_meters": 0, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Walk along North Concourse", "distance_meters": 35, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Enter Section 115", "distance_meters": 15, "step_free": true, "noise_exposure": "medium" }
+      ],
+      "total_distance_meters": 50,
+      "step_free": true,
+      "noise_exposure": "medium",
+      "estimated_minutes": 2
+    },
+    {
+      "id": "route-8",
+      "from": "gate-g",
+      "to": "sec-215",
+      "steps": [
+        { "instruction": "Enter through Gate G", "distance_meters": 0, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Take Ramp 4 to Mezzanine Level", "distance_meters": 25, "step_free": true, "noise_exposure": "low", "requires": "ramp-4" },
+        { "instruction": "Walk along Mezzanine North Concourse", "distance_meters": 30, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Enter Section 215", "distance_meters": 10, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 65,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 3
+    },
+    {
+      "id": "route-9",
+      "from": "gate-d",
+      "to": "sec-104",
+      "steps": [
+        { "instruction": "Enter through Gate D", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Walk along South Concourse eastward", "distance_meters": 60, "step_free": true, "noise_exposure": "high" },
+        { "instruction": "Enter Section 104", "distance_meters": 15, "step_free": true, "noise_exposure": "high" }
+      ],
+      "total_distance_meters": 75,
+      "step_free": true,
+      "noise_exposure": "high",
+      "estimated_minutes": 3
+    },
+    {
+      "id": "route-10",
+      "from": "gate-a",
+      "to": "quiet-1",
+      "steps": [
+        { "instruction": "Enter through Gate A", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Walk straight, then turn right before Section 101", "distance_meters": 30, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Follow signs to Sensory Room A", "distance_meters": 15, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 45,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 2
+    },
+    {
+      "id": "route-11",
+      "from": "gate-e",
+      "to": "quiet-2",
+      "steps": [
+        { "instruction": "Enter through Gate E", "distance_meters": 0, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Walk along West Concourse toward Section 111", "distance_meters": 25, "step_free": true, "noise_exposure": "medium" },
+        { "instruction": "Follow signs to Sensory Room B (behind Section 111)", "distance_meters": 15, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 40,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 2
+    },
+    {
+      "id": "route-12",
+      "from": "gate-g",
+      "to": "quiet-3",
+      "steps": [
+        { "instruction": "Enter through Gate G", "distance_meters": 0, "step_free": true, "noise_exposure": "low" },
+        { "instruction": "Take Ramp 4 to Mezzanine Level", "distance_meters": 25, "step_free": true, "noise_exposure": "low", "requires": "ramp-4" },
+        { "instruction": "Walk to Calm Zone (North Concourse)", "distance_meters": 20, "step_free": true, "noise_exposure": "low" }
+      ],
+      "total_distance_meters": 45,
+      "step_free": true,
+      "noise_exposure": "low",
+      "estimated_minutes": 2
+    }
+  ],
+
+  "staff_queue": []
+}
