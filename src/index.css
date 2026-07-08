@@ -136,7 +136,11 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-on-surface;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
     margin: 0;
   }
 
@@ -147,15 +151,27 @@
 
   /* Focus-visible ring for keyboard nav */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary rounded-sm;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.125rem;
   }
 
   /* Skip-to-content link */
   .skip-link {
-    @apply absolute -top-12 left-4 z-50 bg-primary text-on-primary px-4 py-2 rounded-b-lg font-semibold transition-all duration-200;
+    position: absolute;
+    top: -3rem;
+    left: 1rem;
+    z-index: 50;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: 0.5rem 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 200ms;
   }
   .skip-link:focus {
-    @apply top-0;
+    top: 0;
   }
 }
 
