@@ -96,36 +96,39 @@ export default function AppShell() {
       {/* ══════════════════════════════════════════════════════════════
           TOP NAVBAR (shared between desktop and mobile)
           ══════════════════════════════════════════════════════════════ */}
-      {activeView !== 'chat' && (
-        <nav
-          className={[
-            'fixed top-0 w-full z-50 flex justify-between items-center h-16 px-lg',
-            'bg-surface/70 backdrop-blur-xl border-b border-white/10',
-            'shadow-[0_10px_30px_rgba(6,182,212,0.1)]',
-          ].join(' ')}
-          role="banner"
-        >
-          {/* Logo */}
-          <div className="flex items-center gap-md">
-            {/* Mobile menu button (placeholder) */}
-            <button
-              className="w-touch-target h-touch-target flex items-center justify-center text-primary hover:bg-white/10 transition-colors active:scale-95 rounded-full md:hidden cursor-pointer"
-              aria-label="Menu"
-            >
-              <span className="material-symbols-outlined">menu</span>
-            </button>
-            <h1
-              className="font-extrabold text-primary tracking-tighter"
-              style={{ fontSize: '28px', lineHeight: '1.1' }}
-            >
-              FanPulse Access
-            </h1>
-          </div>
+      <nav
+        className={[
+          'fixed top-0 w-full z-50 flex justify-between items-center h-16 px-lg',
+          'bg-surface/80 backdrop-blur-xl border-b border-white/5',
+          'shadow-[0_10px_40px_rgba(0,0,0,0.5)]',
+          activeView === 'chat' ? 'md:hidden' : ''
+        ].join(' ')}
+        role="banner"
+      >
+        {/* Logo */}
+        <div className="flex items-center gap-md">
+          {/* Mobile menu button (placeholder) */}
+          <button
+            className="w-touch-target h-touch-target flex items-center justify-center text-primary hover:bg-white/10 transition-colors active:scale-95 rounded-full md:hidden cursor-pointer"
+            aria-label="Menu"
+          >
+            <span className="material-symbols-outlined">menu</span>
+          </button>
+          <h1
+            className="font-extrabold text-primary tracking-tighter"
+            style={{ fontSize: '28px', lineHeight: '1.1' }}
+          >
+            FanPulse Access
+          </h1>
+        </div>
 
-          {/* Desktop: spacer for center alignment */}
-          <div className="hidden md:flex flex-1 justify-center" />
-        </nav>
-      )}
+        {/* Desktop: spacer for center alignment / Mobile: Profile Switcher */}
+        <div className="flex-1 flex justify-end md:justify-center">
+          <div className="md:hidden">
+            <ProfileSwitcher position="down" />
+          </div>
+        </div>
+      </nav>
 
       {/* ══════════════════════════════════════════════════════════════
           BODY — sidebar (desktop) + main content
@@ -133,9 +136,9 @@ export default function AppShell() {
       <div className="flex flex-1 overflow-hidden w-full">
 
         {/* ── Desktop Sidebar ── */}
-        <aside className={['h-full w-64 hidden md:flex flex-col bg-surface-container-low/70 backdrop-blur-2xl border-r border-white/10 z-40 pb-md relative shrink-0', activeView === 'chat' ? 'pt-lg' : 'pt-20'].join(' ')}>
+        <aside className={['h-full w-64 hidden md:flex flex-col bg-surface-container-low/70 backdrop-blur-2xl border-r border-white/5 z-40 pb-md relative shrink-0', activeView === 'chat' ? 'pt-lg' : 'pt-20'].join(' ')}>
           {/* Sidebar header */}
-          <div className="px-lg pb-xl border-b border-white/10 mb-md flex flex-col gap-sm">
+          <div className="px-lg pb-xl border-b border-white/5 mb-md flex flex-col gap-sm">
             <div className="w-12 h-12 rounded-lg glass-card flex items-center justify-center text-primary mb-xs">
               <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>stadium</span>
             </div>
@@ -196,17 +199,19 @@ export default function AppShell() {
           </div>
         </aside>
 
-        {/* ── Main Content Area ── */}
         <main
           id="main-content"
-          className={['flex-1 h-full flex flex-col min-h-0 bg-surface relative', activeView === 'chat' ? '' : 'pt-16 overflow-y-auto pb-20 md:pb-0'].join(' ')}
+          className={[
+            'flex-1 h-full flex flex-col min-h-0 bg-surface relative',
+            activeView === 'chat' ? 'pt-16 pb-20 md:pt-0 md:pb-0' : 'pt-16 pb-20 md:pb-0 overflow-y-auto'
+          ].join(' ')}
           role="main"
           aria-label={`${viewConfig.title} view`}
         >
           {/* Ambient glow */}
           <div
             className="absolute inset-0 opacity-20 pointer-events-none"
-            style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 40%)' }}
+            style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%)' }}
           />
 
           <div className={['mx-auto h-full flex flex-col relative z-10 w-full', activeView === 'chat' ? '' : 'max-w-7xl p-lg md:p-xl gap-xl'].join(' ')}>
@@ -234,7 +239,7 @@ export default function AppShell() {
       <nav
         className={[
           'fixed bottom-0 w-full z-50 md:hidden',
-          'bg-surface-container-low/70 backdrop-blur-xl border-t border-white/10',
+          'bg-surface-container-low/80 backdrop-blur-xl border-t border-white/5',
           'flex justify-around items-center h-20 pb-xs px-container-padding',
         ].join(' ')}
         role="tablist"

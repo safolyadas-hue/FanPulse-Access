@@ -22,7 +22,7 @@ const PROFILE_ICONS = {
   cognitive: 'psychology',
 }
 
-export default function ProfileSwitcher() {
+export default function ProfileSwitcher({ position = 'up' }) {
   const { profileId, setProfile, uiPreferences } = useProfile()
   const { highContrast, reduceMotion } = uiPreferences
   const [isOpen, setIsOpen] = useState(false)
@@ -78,7 +78,7 @@ export default function ProfileSwitcher() {
         id="profileBtn"
       >
         {/* Avatar circle with profile icon */}
-        <div className="w-8 h-8 rounded-full border border-white/10 bg-surface-container flex items-center justify-center">
+        <div className="w-8 h-8 rounded-full border border-white/5 bg-surface-container flex items-center justify-center">
           <span className="material-symbols-outlined text-primary" style={{ fontSize: '18px' }}>
             {PROFILE_ICONS[profileId] || 'person'}
           </span>
@@ -90,12 +90,15 @@ export default function ProfileSwitcher() {
       {/* ── Dropdown Menu ── */}
       {isOpen && (
         <div
-          className="absolute bottom-full left-0 mb-2 w-80 bg-surface-container-high border border-white/10 rounded-xl shadow-xl overflow-hidden z-50 flex flex-col p-sm gap-xs"
+          className={[
+            'absolute w-80 bg-surface-container-high border border-white/5 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] overflow-hidden z-50 flex flex-col p-sm gap-xs',
+            position === 'down' ? 'top-full right-0 mt-2 origin-top-right' : 'bottom-full left-0 mb-2 origin-bottom-left'
+          ].join(' ')}
           role="menu"
           aria-label="Select your access profile"
         >
           {/* Header */}
-          <div className="px-sm py-xs text-on-surface-variant font-semibold text-label-lg uppercase tracking-widest border-b border-white/10 mb-xs pb-sm">
+          <div className="px-sm py-xs text-on-surface-variant font-semibold text-label-lg uppercase tracking-widest border-b border-white/5 mb-xs pb-sm">
             Accessibility Modes
           </div>
 

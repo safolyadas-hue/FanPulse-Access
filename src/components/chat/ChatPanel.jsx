@@ -59,7 +59,7 @@ export default function ChatPanel() {
 
   return (
     <div className="flex flex-col h-full w-full animate-in fade-in zoom-in-95 duration-300">
-      <div className="flex-1 h-full w-full flex flex-col border border-white/10 rounded-xl overflow-hidden bg-surface-container-lowest/30 backdrop-blur-sm shadow-2xl relative min-h-0">
+      <div className="flex-1 h-full w-full flex flex-col border border-white/5 rounded-xl overflow-hidden bg-surface-container-lowest/30 backdrop-blur-sm shadow-2xl relative min-h-0">
         
         {/* ── Header ── */}
         <header className="shrink-0 p-6 flex items-center justify-between bg-surface-container-high/20 border-b border-white/5">
@@ -138,14 +138,14 @@ export default function ChatPanel() {
         </div>
 
         {/* ── Input Area ── */}
-        <footer className="shrink-0 p-4 border-t border-white/10 bg-surface-container-lowest/80 backdrop-blur-xl mt-auto">
+        <footer className="shrink-0 p-4 border-t border-white/5 bg-surface-container-lowest/80 backdrop-blur-xl mt-auto">
           {isAvailable ? (
             <form className="flex items-center gap-3 relative" onSubmit={handleSubmit}>
               <div className="relative flex-1 group">
                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60 group-focus-within:text-primary transition-colors">attachment</span>
                 <input 
                   ref={inputRef}
-                  className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-full focus:ring-2 focus:ring-primary/20 focus:border-primary/50 text-on-surface placeholder:text-on-surface-variant/40 transition-all outline-none font-body-md" 
+                  className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/5 rounded-full focus:ring-2 focus:ring-primary/20 focus:border-primary/50 text-on-surface placeholder:text-on-surface-variant/40 transition-all outline-none font-body-md" 
                   placeholder="Type a message or request..." 
                   type="text"
                   value={inputText}
