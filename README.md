@@ -63,7 +63,9 @@ Make sure you have Node.js installed on your machine.
    ```env
    GEMINI_API_KEY=your_api_key_here
    ```
-4. Start the development server:
+4. **CORS Setup for Production**:
+   ALLOWED_ORIGIN must be set in the Netlify dashboard under Site settings > Environment variables, scoped to Functions — it will not work if only added to .env or netlify.toml, since those aren't available to the deployed function at runtime.
+5. Start the development server:
    ```bash
    npm run dev
    ```

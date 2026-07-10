@@ -122,7 +122,9 @@ function buildSystemPrompt(profileId) {
 }
 
 export const handler = async (event, context) => {
-  const allowedOrigin = process.env.NODE_ENV !== 'production' ? '*' : (process.env.ALLOWED_ORIGIN || '');
+  // NODE_ENV is NOT reliably set in Netlify's function runtime — do not gate CORS on it.
+  // Set ALLOWED_ORIGIN explicitly in the Netlify UI instead.
+  const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
   const requestOrigin = event.headers.origin;
 
   let originHeader = allowedOrigin;

@@ -4,3 +4,9 @@
 
 [functions]
   directory = "netlify/functions"
+
+[context.production]
+  # Set ALLOWED_ORIGIN in the Netlify UI (Site settings > Environment variables), 
+  # scoped to Functions. Example: ALLOWED_ORIGIN=https://fan-pulsee.netlify.app
+  # Do not rely on NODE_ENV here — Netlify does not inject it into function runtime 
+  # environments by default.
