@@ -221,7 +221,7 @@ export const handler = async (event, context) => {
       };
     }
 
-    if (stadiumContext && stadiumContext.length > 1000) {
+    if (stadiumContext && stadiumContext.length > 50000) {
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Context payload too large.' }),
