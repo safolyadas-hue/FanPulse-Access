@@ -14,7 +14,7 @@
  */
 
 import { generateResponse, isGeminiAvailable } from './geminiService.js'
-import { getChatSystemPrompt } from './profileEngine.js'
+
 import stadiumData from '../data/stadium.json'
 
 // ─── Stadium Context ──────────────────────────────────────────────────────────
@@ -71,28 +71,7 @@ function getStadiumContext() {
 
 // ─── Multilingual System Prompt Enhancement ───────────────────────────────────
 
-/**
- * Wraps the profile system prompt with an explicit multilingual instruction.
- * This ensures Gemini detects the user's language and responds in kind,
- * without requiring any language selector in the UI.
- */
-function buildSystemPrompt(profileId) {
-  const profilePrompt = getChatSystemPrompt(profileId)
-
-  const multilingualDirective = [
-    '',
-    '--- MULTILINGUAL DIRECTIVE ---',
-    '',
-    'CRITICAL: Detect the language of each user message and respond in that EXACT language.',
-    'If the user writes in Spanish, respond in Spanish. If in Arabic, respond in Arabic.',
-    'If the user writes in French, respond in French. And so on for ANY language.',
-    'Do not translate the user\'s message — respond directly in their language.',
-    'If the language is ambiguous, default to English.',
-    'Maintain the same profile-adapted tone and formatting rules regardless of language.',
-  ].join('\n')
-
-  return profilePrompt + multilingualDirective
-}
+// System prompt building has been moved to the backend.
 
 // ─── Public API ───────────────────────────────────────────────────────────────
 
@@ -113,11 +92,10 @@ export async function sendChatMessage(message, profileId, history = []) {
     )
   }
 
-  const systemPrompt = buildSystemPrompt(profileId)
   const stadiumContext = getStadiumContext()
 
   const responseText = await generateResponse(
-    systemPrompt,
+    profileId,
     message,
     history,
     stadiumContext,

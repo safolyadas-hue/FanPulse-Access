@@ -10,14 +10,14 @@
 /**
  * Generate a response from Gemini via backend proxy.
  *
- * @param {string}   systemPrompt  – profile-adapted system instruction
+ * @param {string}   profileId     – the active profile ID
  * @param {string}   userMessage   – the fan's (sanitized) message
  * @param {object[]} history       – prior turns [{role,parts}]
  * @param {string}   [context]     – optional stadium-data context blob
  * @returns {Promise<string>}        the model's text response
  */
 export async function generateResponse(
-  systemPrompt,
+  profileId,
   userMessage,
   history = [],
   context = ''
@@ -29,7 +29,7 @@ export async function generateResponse(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        systemPrompt,
+        profileId,
         userMessage,
         history,
         context

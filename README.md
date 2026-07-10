@@ -59,8 +59,9 @@ Make sure you have Node.js installed on your machine.
    npm install
    ```
 3. Create a `.env` file in the root directory and add your Gemini API key:
+   **WARNING**: Never prefix this variable with `VITE_` — that would expose it in the public browser bundle.
    ```env
-   VITE_GEMINI_API_KEY=your_api_key_here
+   GEMINI_API_KEY=your_api_key_here
    ```
 4. Start the development server:
    ```bash
