@@ -37,7 +37,9 @@ export default function MobileApp() {
   const [activeView, setActiveView] = useState('wayfinding');
   
   // Hooks
-  const { profileId, setProfile } = useProfile();
+  const { profileId, setProfile, preferences } = useProfile();
+  const highContrast = preferences?.ui?.highContrast || false;
+  
   const { messages, sendMessage, isLoading } = useChat();
   const { currentLocation, setCurrentLocation, destination, setDestination, activeRoute, searchableLocations } = useWayfinding();
   const { issues, addIssue, updateIssue } = useIssues();
@@ -114,7 +116,7 @@ export default function MobileApp() {
   const filteredTickets = issues.filter(t => t.status === staffFilter);
 
   return (
-    <div className="mobile-app">
+    <div className={`mobile-app ${highContrast ? 'high-contrast' : ''}`}>
       <div id="app">
         
         {/* ── TOP BAR ── */}
@@ -130,7 +132,7 @@ export default function MobileApp() {
           </button>
         </header>
 
-        <main>
+        <main className={activeView === 'chat' ? 'chat-active' : ''}>
           {/* ── WAYFINDING ── */}
           <section className={`view ${activeView === 'wayfinding' ? 'active' : ''}`}>
             <div className="view-header">
@@ -168,8 +170,8 @@ export default function MobileApp() {
                 <div className="route-summary card">
                   <h3><span className="material-symbols-outlined" style={{color:'var(--color-primary)',fontSize:'19px'}}>route</span> Route summary</h3>
                   <div className="route-stats">
-                    <div className="route-stat"><div className="num">{activeRoute.dist} m</div><div className="lbl">Distance</div></div>
-                    <div className="route-stat"><div className="num">{activeRoute.min} <span style={{fontSize:'12px',fontWeight:'600'}}>min</span></div><div className="lbl">Est. time</div></div>
+                    <div className="route-stat"><div className="num">{activeRoute.totalDistance}</div><div className="lbl">Distance</div></div>
+                    <div className="route-stat"><div className="num">{activeRoute.estimatedMinutes} <span style={{fontSize:'12px',fontWeight:'600'}}>min</span></div><div className="lbl">Est. time</div></div>
                   </div>
                   <div className="profile-note">
                     <span className="material-symbols-outlined" style={{fontSize:'17px'}}>info</span>

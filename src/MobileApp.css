@@ -207,7 +207,20 @@
 .mobile-app .msg-row.bot .bubble { background: var(--color-surface); border: 1px solid var(--color-outline); border-bottom-left-radius: 4px; }
 .mobile-app .bubble time { display: block; font-size: 10px; margin-top: 4px; opacity: .65; }
 
+/* ── Chat Scroll Fix ── */
+.mobile-app main.chat-active {
+  overflow: hidden;
+  padding-bottom: 88px;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-app main.chat-active .chat-view {
+  flex: 1;
+  overflow: hidden;
+}
+
 .mobile-app .chat-input-bar {
+  flex-shrink: 0;
   position: sticky; bottom: 0;
   display: flex; align-items: center; gap: 10px;
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
@@ -314,3 +327,32 @@
 .mobile-app .profile-option.active .icon { background: var(--color-primary); color: #fff; }
 .mobile-app .profile-option .txt strong { display: block; font-size: 14.5px; font-weight: 700; margin-bottom: 2px; }
 .mobile-app .profile-option .txt span { font-size: 12px; color: var(--color-on-surface-variant); line-height: 1.4; }
+
+/* ══ HIGH CONTRAST MODE ══ */
+.mobile-app.high-contrast {
+  --color-background: #000000;
+  --color-surface: #000000;
+  --color-surface-container: #111111;
+  --color-surface-container-low: #111111;
+  --color-surface-container-high: #222222;
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #eeeeee;
+  --color-primary: #ffeb3b; 
+  --color-primary-container: #333333;
+  --color-on-primary-container: #ffffff;
+  --color-outline: #555555;
+  --color-error: #ff5252;
+  --color-error-container: #440000;
+  --color-warning: #ffeb3b;
+  --color-warning-container: #444400;
+  --color-success: #4caf50;
+  --color-success-container: #003300;
+}
+.mobile-app.high-contrast * {
+  border-color: #555555 !important;
+}
+.mobile-app.high-contrast header.topbar,
+.mobile-app.high-contrast nav.tabbar,
+.mobile-app.high-contrast .chat-input-bar {
+  background: rgba(0,0,0,0.95);
+}
