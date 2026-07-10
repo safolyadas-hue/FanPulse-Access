@@ -224,7 +224,7 @@ export const handler = async (event, context) => {
     const systemPrompt = buildSystemPrompt(profileId);
 
     const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
 
     const chat = model.startChat({
       systemInstruction: {
