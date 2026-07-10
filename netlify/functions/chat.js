@@ -20,7 +20,7 @@ function checkRateLimit(ip) {
 
   if (tokensToAdd > 0) {
     record.tokens = Math.min(MAX_TOKENS, record.tokens + tokensToAdd);
-    record.lastRefill = now;
+    record.lastRefill += tokensToAdd * REFILL_RATE;
   }
 
   if (record.tokens > 0) {
@@ -221,6 +221,14 @@ export const handler = async (event, context) => {
       };
     }
 
+    if (stadiumContext && stadiumContext.length > 1000) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Context payload too large.' }),
+        headers: corsHeaders
+      };
+    }
+
     const systemPrompt = buildSystemPrompt(profileId);
 
     const genAI = new GoogleGenerativeAI(API_KEY);
@@ -233,7 +241,7 @@ export const handler = async (event, context) => {
       },
       history: history.map((h) => ({
         role: h.role,
-        parts: [{ text: h.parts }],
+        parts: Array.isArray(h.parts) ? h.parts : [{ text: String(h.parts) }],
       })),
     });
 
