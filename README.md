@@ -4,6 +4,12 @@
 
 **Chosen Vertical:** Stadium Accessibility, Fan Experience & Venue Operations.
 
+## Alignment with Challenge 4
+- **Navigation**: profile-adaptive wayfinding engine (routingEngine.js)
+- **Accessibility**: 5 accessibility profiles adapting routing, UI, and audio (profileEngine.js)
+- **Multilingual Assistance**: Gemini-powered chat auto-detects and responds in the fan's language (netlify/functions/chat.js)
+- **Crowd Management**: the Cognitive/Sensory profile's routing actively avoids high-noise, high-density concourse segments via a weighted noise score (routingEngine.js's weightedNoiseScore + avoidCrowds preference)
+- **Real-Time Decision Support / Operational Intelligence**: the Staff Dashboard gives venue staff a live, filterable view of fan-reported issues for immediate triage
 **FanPulse Access** bridges the gap between fan accessibility and stadium operations. It provides fans with dynamic, profile-adapted wayfinding, a multilingual AI chat assistant, and native text-to-speech services, while simultaneously empowering stadium staff with a real-time issue reporting dashboard to resolve accessibility blockers instantly.
 
 ---

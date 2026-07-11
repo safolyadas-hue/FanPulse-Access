@@ -1,7 +1,7 @@
 import { useProfile } from '../../hooks/useProfile.js'
 import { useSpeech } from '../../hooks/useSpeech.js'
 
-function getIconForInstruction(instruction = '') {
+export function getIconForInstruction(instruction = '') {
   const lower = instruction.toLowerCase()
   if (lower.includes('elevator')) return 'elevator'
   if (lower.includes('ramp')) return 'accessible_forward'
@@ -11,6 +11,7 @@ function getIconForInstruction(instruction = '') {
   if (lower.includes('arrive') || lower.includes('destination')) return 'flag'
   return 'directions_walk'
 }
+
 
 function simplifyInstruction(instruction) {
   // A naive simplification for Cognitive profile demo purposes

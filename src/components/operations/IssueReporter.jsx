@@ -14,12 +14,6 @@ const ISSUE_TYPES = [
 export default function IssueReporter() {
   const { submitTicket } = useTickets()
   
-  const [location, setLocation] = useState('')
-  const [type, setType] = useState(ISSUE_TYPES[0])
-  const [description, setDescription] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
-
   const locations = useMemo(() => {
     const locs = []
     if (stadiumData.sections) stadiumData.sections.forEach(s => locs.push(s.name))
@@ -28,11 +22,11 @@ export default function IssueReporter() {
     return locs.sort()
   }, [])
 
-  useEffect(() => {
-    if (locations.length > 0 && !location) {
-      setLocation(locations[0])
-    }
-  }, [locations, location])
+  const [location, setLocation] = useState(() => locations.length > 0 ? locations[0] : '')
+  const [type, setType] = useState(ISSUE_TYPES[0])
+  const [description, setDescription] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()

@@ -46,29 +46,47 @@ export default function StaffDashboard() {
           </p>
         </header>
 
-        {/* Segmented Filter Buttons */}
-        <div className="inline-flex w-full md:w-auto p-1 bg-surface-container-low/60 border border-white/10 rounded-full backdrop-blur-md">
-          {['open', 'in_progress', 'resolved'].map(f => (
-            <button
-              key={f}
-              onClick={() => {
-                setFilter(f)
-                setSelectedTicketId(null)
-              }}
-              className={[
-                'flex-1 md:flex-initial flex items-center justify-center gap-xs px-lg py-sm rounded-full text-label-lg font-bold whitespace-nowrap transition-all duration-300 cursor-pointer',
-                filter === f ? 'bg-primary text-on-primary shadow-[0_0_15px_rgba(6,182,212,0.3)]' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'
-              ].join(' ')}
-            >
-              {f.replace('_', ' ')}
-              <span className={[
-                'ml-2 px-2 py-0.5 text-xs rounded-full font-semibold transition-colors',
-                filter === f ? 'bg-on-primary/20 text-on-primary' : 'bg-white/10 text-on-surface-variant'
-              ].join(' ')}>
-                {tickets.filter(t => t.status === f).length}
-              </span>
-            </button>
-          ))}
+        <div className="flex flex-col items-end gap-md">
+          {/* Summary Strip */}
+          <div className="flex gap-md w-full md:w-auto">
+            <div className="glass-card px-md py-sm rounded-xl flex-1 text-center flex flex-col items-center justify-center">
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor('open')}`}>Open</span>
+              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === 'open').length}</span>
+            </div>
+            <div className="glass-card px-md py-sm rounded-xl flex-1 text-center flex flex-col items-center justify-center">
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor('in_progress')}`}>In Progress</span>
+              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === 'in_progress').length}</span>
+            </div>
+            <div className="glass-card px-md py-sm rounded-xl flex-1 text-center flex flex-col items-center justify-center">
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor('resolved')}`}>Resolved</span>
+              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === 'resolved').length}</span>
+            </div>
+          </div>
+
+          {/* Segmented Filter Buttons */}
+          <div className="inline-flex w-full md:w-auto p-1 bg-surface-container-low/60 border border-white/10 rounded-full backdrop-blur-md">
+            {['open', 'in_progress', 'resolved'].map(f => (
+              <button
+                key={f}
+                onClick={() => {
+                  setFilter(f)
+                  setSelectedTicketId(null)
+                }}
+                className={[
+                  'flex-1 md:flex-initial flex items-center justify-center gap-xs px-lg py-sm rounded-full text-label-lg font-bold whitespace-nowrap transition-all duration-300 cursor-pointer',
+                  filter === f ? 'bg-primary text-on-primary shadow-[0_0_15px_rgba(6,182,212,0.3)]' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'
+                ].join(' ')}
+              >
+                {f.replace('_', ' ')}
+                <span className={[
+                  'ml-2 px-2 py-0.5 text-xs rounded-full font-semibold transition-colors',
+                  filter === f ? 'bg-on-primary/20 text-on-primary' : 'bg-white/10 text-on-surface-variant'
+                ].join(' ')}>
+                  {tickets.filter(t => t.status === f).length}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
