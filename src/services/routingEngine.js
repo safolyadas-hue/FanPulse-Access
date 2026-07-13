@@ -300,7 +300,8 @@ function generateWarnings(route, prefs, oosSet, stadiumData) {
   // Noise warnings for cognitive/sensory profile
   if (prefs.avoidNoise) {
     const peak = peakNoiseExposure(route)
-    if (NOISE_RANK[peak] >= NOISE_RANK.medium) {
+    // Warn if the route's peak noise meets or exceeds the avoid threshold
+    if (NOISE_RANK[peak] >= NOISE_RANK[NOISE_THRESHOLD_AVOID]) {
       warnings.push(
         `🔊 Parts of this route pass through ${peak}-noise areas. ` +
         `Noise-cancelling headphones are available at the nearest Sensory Room.`

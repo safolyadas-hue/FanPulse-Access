@@ -18,6 +18,7 @@
  */
 
 import { createContext, useState, useCallback, useMemo } from 'react'
+import { ISSUE_STATUS } from '../constants/issueStatus.js'
 
 const STORAGE_KEY = 'fanpulse_issue_queue'
 
@@ -61,7 +62,7 @@ function loadIssues() {
       level: 'lower',
       description: 'Elevator 2 Out of Service',
       location: 'Gate A',
-      status: 'open',
+      status: ISSUE_STATUS.OPEN,
       priority: 'high',
       reportedAt: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
     },
@@ -72,7 +73,7 @@ function loadIssues() {
       level: 'lower',
       description: 'Spill near Gate C',
       location: 'Gate C Concourse',
-      status: 'in_progress',
+      status: ISSUE_STATUS.IN_PROGRESS,
       priority: 'medium',
       reportedAt: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
     }
@@ -128,7 +129,7 @@ export function IssueProvider({ children }) {
       level: issueData.level || 'lower',
       description: issueData.description || '',
       location: issueData.location || '',
-      status: 'open',
+      status: ISSUE_STATUS.OPEN,
       priority: issueData.priority || 'medium',
       reportedAt: new Date().toISOString(),
     }
@@ -154,7 +155,7 @@ export function IssueProvider({ children }) {
         if (issue.id !== issueId) return issue
         const merged = { ...issue, ...updates }
         // Auto-set resolvedAt when status changes to 'resolved'
-        if (updates.status === 'resolved' && !issue.resolvedAt) {
+        if (updates.status === ISSUE_STATUS.RESOLVED && !issue.resolvedAt) {
           merged.resolvedAt = new Date().toISOString()
         }
         return merged

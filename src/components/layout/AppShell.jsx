@@ -72,7 +72,7 @@ const VIEW_CONFIG = {
 // ─── AppShell Component ───────────────────────────────────────────────────────
 
 export default function AppShell() {
-  const { profileId, uiPreferences } = useProfile()
+  const { uiPreferences } = useProfile()
   const { highContrast, largeText, reduceMotion } = uiPreferences
   const [activeView, setActiveView] = useState('chat')
 

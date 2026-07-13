@@ -38,7 +38,7 @@ export default function StepByStepGuide({ steps }) {
       
       <div className="relative border-l-2 border-white/10 ml-4 space-y-6">
         {steps.map((step, index) => {
-          const isLast = index === steps.length - 1
+
           const iconName = getIconForInstruction(step.instruction)
           const textToDisplay = isCognitive ? simplifyInstruction(step.instruction) : step.instruction
 

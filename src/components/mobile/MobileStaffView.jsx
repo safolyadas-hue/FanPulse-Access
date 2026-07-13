@@ -1,4 +1,5 @@
 import React from 'react';
+import { ISSUE_STATUS, ISSUE_STATUS_LIST } from '../../constants/issueStatus.js';
 
 export default function MobileStaffView({
   activeView,
@@ -8,9 +9,9 @@ export default function MobileStaffView({
   setStaffFilter,
   setTicketSheetData
 }) {
-  const openCount = issues.filter(t => t.status === 'open').length;
-  const inProgressCount = issues.filter(t => t.status === 'in_progress').length;
-  const resolvedCount = issues.filter(t => t.status === 'resolved').length;
+  const openCount = issues.filter(t => t.status === ISSUE_STATUS.OPEN).length;
+  const inProgressCount = issues.filter(t => t.status === ISSUE_STATUS.IN_PROGRESS).length;
+  const resolvedCount = issues.filter(t => t.status === ISSUE_STATUS.RESOLVED).length;
 
   return (
     <section className={`view ${activeView === 'staff' ? 'active' : ''}`}>
@@ -35,7 +36,7 @@ export default function MobileStaffView({
       </div>
 
       <div className="staff-filters">
-        {['open', 'in_progress', 'resolved'].map(status => (
+        {ISSUE_STATUS_LIST.map(status => (
           <button key={status} className={staffFilter === status ? 'active' : ''} onClick={() => setStaffFilter(status)}>
             {status.replace('_', ' ')} <span className="filter-count">{issues.filter(i => i.status === status).length}</span>
           </button>

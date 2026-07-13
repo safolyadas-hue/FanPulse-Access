@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useTickets } from '../../hooks/useTickets.js'
+import { ISSUE_STATUS, ISSUE_STATUS_LIST } from '../../constants/issueStatus.js'
 
 function getStatusColor(status) {
   switch (status) {
-    case 'open': return 'bg-error-container text-error'
-    case 'in_progress': return 'bg-warning-container text-warning'
-    case 'resolved': return 'bg-primary-container text-primary'
+    case ISSUE_STATUS.OPEN: return 'bg-error-container text-error'
+    case ISSUE_STATUS.IN_PROGRESS: return 'bg-warning-container text-warning'
+    case ISSUE_STATUS.RESOLVED: return 'bg-primary-container text-primary'
     default: return 'bg-surface-container text-on-surface'
   }
 }
@@ -27,7 +28,7 @@ function formatDate(isoString) {
 
 export default function StaffDashboard() {
   const { tickets, updateTicketStatus } = useTickets()
-  const [filter, setFilter] = useState('open') // open, in_progress, resolved
+  const [filter, setFilter] = useState(ISSUE_STATUS.OPEN) // open, in_progress, resolved
   const [selectedTicketId, setSelectedTicketId] = useState(null)
 
   const filteredTickets = tickets.filter(t => t.status === filter).sort((a, b) => new Date(b.reportedAt) - new Date(a.reportedAt))
@@ -50,22 +51,22 @@ export default function StaffDashboard() {
           {/* Summary Strip */}
           <div className="flex gap-md w-full md:w-auto">
             <div className="glass-card px-md py-sm rounded-xl flex-1 text-center flex flex-col items-center justify-center">
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor('open')}`}>Open</span>
-              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === 'open').length}</span>
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor(ISSUE_STATUS.OPEN)}`}>Open</span>
+              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === ISSUE_STATUS.OPEN).length}</span>
             </div>
             <div className="glass-card px-md py-sm rounded-xl flex-1 text-center flex flex-col items-center justify-center">
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor('in_progress')}`}>In Progress</span>
-              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === 'in_progress').length}</span>
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor(ISSUE_STATUS.IN_PROGRESS)}`}>In Progress</span>
+              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === ISSUE_STATUS.IN_PROGRESS).length}</span>
             </div>
             <div className="glass-card px-md py-sm rounded-xl flex-1 text-center flex flex-col items-center justify-center">
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor('resolved')}`}>Resolved</span>
-              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === 'resolved').length}</span>
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide mb-1 ${getStatusColor(ISSUE_STATUS.RESOLVED)}`}>Resolved</span>
+              <span className="text-xl font-bold text-on-surface leading-none">{tickets.filter(t => t.status === ISSUE_STATUS.RESOLVED).length}</span>
             </div>
           </div>
 
           {/* Segmented Filter Buttons */}
           <div className="inline-flex w-full md:w-auto p-1 bg-surface-container-low/60 border border-white/10 rounded-full backdrop-blur-md">
-            {['open', 'in_progress', 'resolved'].map(f => (
+            {ISSUE_STATUS_LIST.map(f => (
               <button
                 key={f}
                 onClick={() => {
@@ -183,9 +184,9 @@ export default function StaffDashboard() {
 
               {/* Action Buttons */}
               <div className="mt-xl pt-lg border-t border-white/10 flex gap-4">
-                {selectedTicket.status === 'open' && (
+                {selectedTicket.status === ISSUE_STATUS.OPEN && (
                   <button 
-                    onClick={() => updateTicketStatus(selectedTicket.id, 'in_progress')}
+                    onClick={() => updateTicketStatus(selectedTicket.id, ISSUE_STATUS.IN_PROGRESS)}
                     className="flex-1 bg-warning hover:bg-warning/90 text-on-warning font-bold py-md rounded-xl shadow-lg transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
                   >
                     <span className="material-symbols-outlined">engineering</span>
@@ -193,9 +194,9 @@ export default function StaffDashboard() {
                   </button>
                 )}
                 
-                {(selectedTicket.status === 'open' || selectedTicket.status === 'in_progress') && (
+                {(selectedTicket.status === ISSUE_STATUS.OPEN || selectedTicket.status === ISSUE_STATUS.IN_PROGRESS) && (
                   <button 
-                    onClick={() => updateTicketStatus(selectedTicket.id, 'resolved')}
+                    onClick={() => updateTicketStatus(selectedTicket.id, ISSUE_STATUS.RESOLVED)}
                     className="flex-1 bg-primary hover:bg-primary/90 text-on-primary font-bold py-md rounded-xl shadow-lg transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
                   >
                     <span className="material-symbols-outlined">check_circle</span>
@@ -203,7 +204,7 @@ export default function StaffDashboard() {
                   </button>
                 )}
 
-                {selectedTicket.status === 'resolved' && (
+                {selectedTicket.status === ISSUE_STATUS.RESOLVED && (
                   <div className="w-full text-center text-primary font-bold bg-primary-container p-md rounded-xl">
                     <span className="material-symbols-outlined align-middle mr-2">task_alt</span>
                     This issue has been resolved.

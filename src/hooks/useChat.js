@@ -13,7 +13,7 @@
  *   - role: 'user' | 'assistant' | 'system'
  */
 
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback } from 'react'
 import { useProfile } from './useProfile.js'
 import { sanitizeInput } from '../utils/sanitize.js'
 import { stripPII } from '../utils/privacy.js'
@@ -70,7 +70,6 @@ export function useChat() {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  const abortRef = useRef(null)
 
   /**
    * Send a message through the full security pipeline → chatService.

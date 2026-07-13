@@ -4,6 +4,7 @@ import { useProfile } from './hooks/useProfile.js';
 import { useChat } from './hooks/useChat.js';
 import { useWayfinding } from './hooks/useWayfinding.js';
 import { useIssues } from './hooks/useIssues.js';
+import { ISSUE_STATUS } from './constants/issueStatus.js';
 import MobileWayfindingView from './components/mobile/MobileWayfindingView.jsx';
 import MobileChatView from './components/mobile/MobileChatView.jsx';
 import MobileReportView from './components/mobile/MobileReportView.jsx';
@@ -44,7 +45,7 @@ export default function MobileApp() {
   const [showToast, setShowToast] = useState(false);
 
   // Staff
-  const [staffFilter, setStaffFilter] = useState('open');
+  const [staffFilter, setStaffFilter] = useState(ISSUE_STATUS.OPEN);
 
   useEffect(() => {
     if (chatScrollRef.current) {
@@ -188,12 +189,12 @@ export default function MobileApp() {
                 <div className="box">{ticketSheetData.desc}</div>
               </div>
 
-              {ticketSheetData.status !== 'resolved' ? (
+              {ticketSheetData.status !== ISSUE_STATUS.RESOLVED ? (
                 <div className="sheet-actions">
-                  {ticketSheetData.status === 'open' && (
-                    <button className="btn-progress" onClick={() => { updateIssue(ticketSheetData.id, { status: 'in_progress' }); setTicketSheetData(null); }}><span className="material-symbols-outlined" style={{ fontSize: '17px' }}>engineering</span> Mark in progress</button>
+                  {ticketSheetData.status === ISSUE_STATUS.OPEN && (
+                    <button className="btn-progress" onClick={() => { updateIssue(ticketSheetData.id, { status: ISSUE_STATUS.IN_PROGRESS }); setTicketSheetData(null); }}><span className="material-symbols-outlined" style={{ fontSize: '17px' }}>engineering</span> Mark in progress</button>
                   )}
-                  <button className="btn-resolve" onClick={() => { updateIssue(ticketSheetData.id, { status: 'resolved' }); setTicketSheetData(null); }}><span className="material-symbols-outlined" style={{ fontSize: '17px' }}>check_circle</span> Resolve</button>
+                  <button className="btn-resolve" onClick={() => { updateIssue(ticketSheetData.id, { status: ISSUE_STATUS.RESOLVED }); setTicketSheetData(null); }}><span className="material-symbols-outlined" style={{ fontSize: '17px' }}>check_circle</span> Resolve</button>
                 </div>
               ) : (
                 <div className="box" style={{ textAlign: 'center', color: 'var(--color-success)', fontWeight: '700', marginTop: '16px' }}>Resolved</div>

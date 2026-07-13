@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
 import { useChat } from '../../hooks/useChat.js'
-import { useProfile } from '../../hooks/useProfile.js'
 import MessageBubble from './MessageBubble.jsx'
 
 // ─── Typing Indicator ─────────────────────────────────────────────────────────
@@ -28,7 +27,6 @@ function TypingIndicator() {
 
 export default function ChatPanel() {
   const { messages, isLoading, error, sendMessage, clearChat, isAvailable } = useChat()
-  const { profileId, profile, uiPreferences } = useProfile()
   const [inputText, setInputText] = useState('')
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)

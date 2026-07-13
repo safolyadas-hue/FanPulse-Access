@@ -23,8 +23,7 @@ const PROFILE_ICONS = {
 }
 
 export default function ProfileSwitcher({ position = 'up' }) {
-  const { profileId, setProfile, uiPreferences } = useProfile()
-  const { highContrast, reduceMotion } = uiPreferences
+  const { profileId, setProfile } = useProfile()
   const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef(null)
   const triggerRef = useRef(null)

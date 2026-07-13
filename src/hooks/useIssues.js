@@ -10,6 +10,7 @@
 
 import { useContext, useMemo } from 'react'
 import { IssueContext } from '../context/IssueContext.jsx'
+import { ISSUE_STATUS } from '../constants/issueStatus.js'
 
 /**
  * @returns {{
@@ -38,7 +39,7 @@ export function useIssues() {
    * Derived statistics, memoized to avoid recomputation on every render.
    */
   const derived = useMemo(() => {
-    const openCount = issues.filter((i) => i.status === 'open').length
+    const openCount = issues.filter((i) => i.status === ISSUE_STATUS.OPEN).length
 
     // Group issues by zone
     const issuesByZone = issues.reduce((acc, issue) => {
